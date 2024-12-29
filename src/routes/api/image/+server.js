@@ -10,7 +10,7 @@ const openai = new OpenAI({
 export async function POST({ request }) {
     try {
 
-        // TO SEE WHICH MODELS IS ACCESSIBLE 
+        // TO SEE WHICH MODELS IS ACCESSIBLE:
         // const list = await openai.models.list();
 
         // for await (const model of list) {
@@ -29,11 +29,12 @@ export async function POST({ request }) {
         const response = await openai.images.generate({
             prompt: refinedPrompt,
             n: 1,
-            // size: '512x512',
             model: "dall-e-3", 
+            size: "1024x1024",
         });
 
         const imageUrl = response.data[0].url;
+        console.log(imageUrl);
 
         return json({ imageUrl });
     } catch (error) {
