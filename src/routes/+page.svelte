@@ -1,15 +1,15 @@
 <script>
-    import { onMount } from "svelte";
-    import { dataStore, fetchData } from "$lib/store/dataStore";
-    onMount(async () => {
-        await fetchData("images");
-    });
+	import { onMount } from 'svelte';
+	import { dataStore, fetchData, addData } from '$lib/store/dataStore';
+	onMount(async () => {
+		await fetchData('images');
+	});
 
 	let imageUrl = $state();
 	let prompt = $state();
 	let loading = $state();
 	let error = $state();
-    let data = $state(dataStore);
+	let data = $state(dataStore);
 
 	async function generate() {
 		if (!prompt.trim()) {
@@ -29,13 +29,14 @@
 				body: JSON.stringify({ refinedPrompt })
 			});
 
-			const data = await response.json();
+			const imgResult = await response.json();
 
 			if (!response.ok) {
 				throw new Error(data.error || 'Failed to generate image.');
 			}
-
-			imageUrl = data.imageUrl;
+			imageUrl = imgResult.secure_url;
+			let newData = { imageUrl: imageUrl, prompt: prompt };
+			await addData(newData);
 		} catch (err) {
 			console.error(err);
 			error = err.message;
@@ -61,11 +62,10 @@
 {/if}
 
 {#if $data.length > 0}
-  <ul>
-    {#each $data as item}
-      <li>{item.prompt}</li>
-    {/each}
-  </ul>
+		{#each $data as item}
+			<img alt="Generated Cereal Box Cover" src={item.imageUrl}/>
+		{/each}
+
 {:else}
-  <p>Loading...</p>
+	<p>Loading...</p>
 {/if}
