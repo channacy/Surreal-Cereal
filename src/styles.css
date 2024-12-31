@@ -1,3 +1,54 @@
+* {
+    background-color: #f4f1de;
+    margin: 0.2em;
+    font-family: "Lora", serif;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
 #title {
-    color:blue;
+    color: black;
+    font-size: 4em;
+    font-family: "Just Another Hand", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#desc {
+    font-size: 1em;
+    color:rgb(18, 18, 18)
+}
+
+#inputField {
+    background-color: white;
+    padding:1.2em;
+    width: 50em;
+    border-radius: 8px;
+    text-decoration: none;
+    border-color: black;
+    font-size: 0.8em;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-self: center;
+    padding-top: 1em;
+}
+
+#genBtn {
+    background-color: #e07a5f;
+    padding: 1.2em;
+    color: white;
+    width: 10em;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 0.8em;
 }
