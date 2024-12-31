@@ -13,9 +13,11 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test"
 	},
+	"build": "react-scripts build",
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
 		"@playwright/test": "^1.45.3",
+		"@sveltejs/adapter-netlify": "^4.4.0",
 		"@sveltejs/adapter-vercel": "^5.5.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
@@ -33,6 +35,7 @@
 		"cloudinary": "^2.5.1",
 		"dotenv": "^16.4.7",
 		"firebase": "^11.1.0",
+		"node": "22.12.0",
 		"openai": "^4.77.0"
 	}
 }
