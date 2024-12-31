@@ -1,3 +1,9 @@
+# Overview
+<img width="1404" alt="Screenshot 2024-12-31 at 1 19 30 AM" src="https://github.com/user-attachments/assets/2a287873-e883-4d12-8f3e-473db0ab44e7" />
+
+
+
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
